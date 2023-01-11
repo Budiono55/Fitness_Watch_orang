@@ -33,7 +33,8 @@ void clock(OLEDDisplay *display, OLEDDisplayUiState *state, int16_t x, int16_t y
 
     display->setFont(ArialMT_Plain_24);
     display->setTextAlignment(TEXT_ALIGN_CENTER);
-    display->drawString(64 + x, 10 + y, timenow);
+    // display->drawString(64 + x, 10 + y, timenow);
+    display->drawString(64 + x, y, timenow);
 }
 
 void pulseRate(OLEDDisplay *display, OLEDDisplayUiState *state, int16_t x, int16_t y)
@@ -66,11 +67,14 @@ int frameCount = 2;
 void initDispaly()
 {
     display.init();
-    display.flipScreenVertically();
+    // display.flipScreenVertically();
     display.setFont(ArialMT_Plain_10);
     display.setTextAlignment(TEXT_ALIGN_CENTER);
-    display.drawString(64, 16, "Booting...");
+    // display.drawString(64, 16, "Booting...");
+    display.drawString(64, 10, "Booting...");
     display.display();
+    // display.setRotation(2);
+    
 }
 
 void initUI()
@@ -81,7 +85,7 @@ void initUI()
     ui.setFrameAnimation(SLIDE_LEFT);
     ui.setFrames(frames, frameCount);
     ui.init();
-    display.flipScreenVertically();
+    // display.flipScreenVertically();
 }
 
 void clearDisplay()
